@@ -18,7 +18,6 @@ class App extends Component {
     var queryData = [];
     if(e.target.value != '') {
       this.state.data.forEach(function(person) {
-
           if(person.toLowerCase().indexOf(e.target.value)!=-1) {
             if(queryData.length < 10) {
               queryData.push(person);
@@ -70,7 +69,6 @@ class SearchBar extends React.Component {
 }
 
 class SearchResult extends React.Component {
-
   render() {
     return (
       <div>
@@ -81,9 +79,7 @@ class SearchResult extends React.Component {
         </ul>
       </div>
     )
-
   }
-
 }
 
 class Item extends React.Component {
