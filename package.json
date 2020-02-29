@@ -1,9 +1,9 @@
 {
-  "name": "cra-electron",
-  "description": "CRA + Electron sitting in a tree",
-  "author": "Kitze",
-  "version": "0.2.7",
-  "private": true,
+  "name": "homebrew-gui-hackathon",
+  "description": "GUI for homebrew usage",
+  "author": "HackIllionis",
+  "version": "0.0.1",
+  "private": false,
   "dependencies": {
     "cross-env": "6.0.2",
     "electron-is-dev": "1.1.0",
