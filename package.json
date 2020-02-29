@@ -20,8 +20,12 @@
     "electron": "^8.0.2"
   },
   "dependencies": {
+<<<<<<< HEAD
     "jquery": "^3.4.1",
     "jsdom": "^16.2.0",
     "request": "^2.88.2"
+=======
+    "electron-reload": "^1.5.0"
+>>>>>>> 693c54daa898b84df3a3672df75b508fba2d3845
   }
 }

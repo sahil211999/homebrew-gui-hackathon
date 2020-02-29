@@ -2,6 +2,8 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+require('electron-reload')(__dirname);
+
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
