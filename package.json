@@ -18,5 +18,10 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^8.0.2"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jsdom": "^16.2.0",
+    "request": "^2.88.2"
   }
 }
