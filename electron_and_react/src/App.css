@@ -11,7 +11,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+   background: #2e2a24;
 }
 
 .App-intro {
@@ -21,4 +21,65 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  padding: 50px;
+  font: 14px normal Arial, sans-serif;
+  color: #626771;
+   background: #2e2a24;
+   font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", sans-serif;
+}
+body {
+  padding: 60px;
+  text-align: center;
+   background: #2e2a24;
+}
+
+input[type=text]{
+  text-align: center;
+  font: inherit;
+  border: 6px solid #f9d094;;
+  padding: 13px 12px;
+  font-size: 15px;
+  box-shadow: 0 1px 1px #DDD;
+  width: 384px;
+  outline: none;
+  display: block;
+  color: #788585;
+  margin: 0 auto 20px;
+}
+ul {
+  list-style: none;
+  display: inline-block;
+  width: 420px;
+  text-align: left;
+}
+ul li {
+  display: block;
+  padding: 15px 20px;
+  background-color: #F8F8F8;
+  color: #788585;
+  margin-bottom: 3px;
+  position: relative;
+  transition: 0.3s;
+}
+ul li a {
+  position: absolute;
+  left: 160px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #969d9d;
+}
+ul li:hover {
+  background-color: #f9d094;
+}
+
+h1,h2,h3{
+  margin: 20px;
+  color: #f9d094;
 }
