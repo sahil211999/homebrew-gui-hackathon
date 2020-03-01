@@ -4,6 +4,7 @@
   "author": "HackIllionis",
   "version": "0.0.1",
   "private": false,
+  "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "cross-env": "7.0.0",
     "electron-is-dev": "1.1.0",

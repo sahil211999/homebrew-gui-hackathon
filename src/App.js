@@ -4,12 +4,9 @@ import './App.css';
 import PackagesList from './compenents/PackagesList';
 import Cart from './compenents/Cart'
 
-const {app, shell} = window.require('electron')
+const {app} = window.require('electron')
 
-shell.openExternal(
-  'https://getstream.io/winds',
-);
-
+let data = null
 
 class App extends Component {
   constructor() {
@@ -25,14 +22,24 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // shell.showItemInFolder('/Users/linsiyi/Documents/Projects/WebDev/SIdeProjects/homebrew-gui-hackathon')
-
+    fetch("http://localhost:5000/installed")
+      .then(res => res.json())
+      .then(
+        (results) => {
+          alert(results.installed_packages)
+        },
+        (error) => {
+          alert(error)
+        }
+      )
     // fetch all packages here
     fetch("https://formulae.brew.sh/api/formula.json")
       .then(res => res.json())
       .then(
         (results) => {
+          alert(results)
           results.map((result) => {
             this.state.packagesAvailable.push({
               'name': result.name,
