@@ -16,6 +16,7 @@ class Cart extends Component {
     return (
       this.props.packages.map((aPackage, i) => {
         return (
+
           <FormulaCard key={i} name={aPackage.name} version={aPackage.version} isLatest={aPackage.isLatest}/>
         )
       })

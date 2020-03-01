@@ -9,19 +9,19 @@ import '../style/formula.css'
 
 const FormulaCard = (props) => {
   return(
-    <div className = "FormulaCard">
-      <div  className = "name">
-          {props.name}
-       </div>
+      <div className = "FormulaCard">
+        <div  className = "name">
+            {props.name}
+         </div>
 
-       <div className = "version">
-          {props.version}
-       </div>
-       
-       <div className = "is-latest">
-           {props.isLatest ? 'Yes':'No'}
-       </div>
-    </div>
+         <div className = "version">
+            {props.version}
+         </div>
+
+         <div className = "is-latest">
+             {props.isLatest ? 'Yes':'No'}
+         </div>
+      </div>
   )
  }
 

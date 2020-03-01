@@ -11,7 +11,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-   background: #2e2a24;
+  background: #2e2a24;
 }
 
 .App-intro {
@@ -43,11 +43,11 @@ input[type=text]{
   padding: 13px 12px;
   font-size: 15px;
   box-shadow: 0 1px 1px #DDD;
-  width: 450px;
+  width: 80%;
   outline: none;
   display: block;
   color: #788585;
-  margin: 0 auto 20px;
+  margin: auto;
 }
 ul {
   list-style: none;
@@ -60,30 +60,39 @@ ul {
 ul li {
   display: block;
   padding: 15px 20px;
-  background-color: #F8F8F8;
-  color: #788585;
+  background-color: #2e2a24;
+  color: #f9d094;
+  width: 80%;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding:2em 20px 0;
+
+  margin-top:2px;
   margin-bottom: 3px;
   position: relative;
   transition: 0.3s;
 }
 ul li a {
   position: absolute;
-  left: 160px;
+  width: 80%;
   font-size: 12px;
   line-height: 16px;
   color: #969d9d;
 }
 ul li:hover {
-  background-color: #f9d094;
+  background-color: #788585;
 }
 
-h1,h2,h3{
+h1,h2{
   color: #f9d094;
   font-size: 420%;
   margin: 0 0 0.1em;
   text-align: center;
-  text-shadow:1px 1px 10px rgba(0, 0, 0, 0.25)
+  text-shadow:1px 1px 10px rgba(0, 0, 0, 0.25);
+  font-weight:900;
 }
+
 
 .cart-container{
   width: 100vw;
@@ -93,6 +102,15 @@ h1,h2,h3{
 
 .cart-button{
   float:right;
+  height:55px;
+  width: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #2e2a24;
+  /* border: 6px solid #f9d094; */
+  color: #f9d094;
 }
 
 .modal{
@@ -126,4 +144,26 @@ h1,h2,h3{
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.label-container{
+  width: 101%;
+  display: flex;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  color : #DDD;
+}
+.label{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+   -webkit-flex: 1 1 0;
+   -ms-flex: 1 1 0;
+   flex: 1 1 0;
+}
+
+.search-container{
+  margin-bottom : 2%;
 }
