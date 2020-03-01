@@ -1,0 +1,90 @@
+.ProgressBar {
+  text-align: center;
+}
+
+
+
+.dotwrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+}
+
+.loading {
+  margin: 0 5px;
+  font-size: 2rem;
+}
+
+.dot0 {
+  background-color: #f9d094;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  animation: BounceAnimation 0.5s linear infinite;
+  animation-delay: 0;
+}
+
+.dot1 {
+  background-color: #f9d094;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  animation: BounceAnimation 0.5s linear infinite;
+  animation-delay: 0.1s;
+}
+
+.dot2 {
+  background-color: #f9d094;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  animation: BounceAnimation 0.5s linear infinite;
+  animation-delay: 0.2s;
+}
+
+button {
+  font-size: 1.25rem !important;
+  border: 0;
+  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 17px 25px !important;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-align: center;
+  
+  cursor: pointer;
+  background-color: #f9d094;
+  color: #fefefe;
+  height: 50px;
+  width: 250px;
+}
+
+button:hover {
+
+    background-color: #f9d094;
+
+
+}
+
+@keyframes BounceAnimation {
+  0% {
+    margin-bottom: 0;
+  }
+  50% {
+    margin-bottom: 15px;
+  }
+  100% {
+    margin-bottom: 0;
+  }
+}
