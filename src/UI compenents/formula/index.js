@@ -9,25 +9,20 @@ import './style.css'
 
 const FormulaCard = (props) => {
   return(
-    
     <div className = "FormulaCard">
-      <div  className = "Name">
-          Name
+      <div  className = "name">
+          {props.name}
        </div>
 
-       <div  className = "Version">
-          Cur
+       <div className = "version">
+          {props.version}
        </div>
        
-       <div  className = "LattestV">
-           Lattest 
+       <div className = "is-latest">
+           {props.isLatest ? 'Yes':'No'}
        </div>
     </div>
-
-
-
   )
-
  }
 
 export default FormulaCard

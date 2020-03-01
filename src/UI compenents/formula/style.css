@@ -10,7 +10,7 @@
     background-color: #E0E0E0;
 }
 
-.Version, .LattestV, .Name {
+.version, .is-latest, .name {
    justify-content: center;
    align-content: center;
     -webkit-flex: 1 1 0;
