@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 class Item extends Component {
-  onAdd() {
+  onAdd(value) {
     if (this.props.handleAddPackage) {
-      this.props.handleAddPackage({'name': this.props.val, 'version': 'v1.1', 'isLatest': false})
+      this.props.handleAddPackage({'name': value.name, 'version': value.version , 'isLatest': true})
     }
   }
   render() {
     return(
       <li>
-        {this.props.val}
-        <button onClick={this.onAdd.bind(this)}>Add</button>
+        {this.props.aPackage.name}
+        <button onClick={this.onAdd.bind(this, this.props.aPackage)}>Add</button>
       </li>
     )
   }
