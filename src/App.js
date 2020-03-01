@@ -6,9 +6,14 @@ import Cart from './compenents/Cart'
 
 const {app} = window.require('electron').remote
 
+let formula_map = {}
+let formula_map1 = {}
+var data_body;
+
 class App extends Component {
     constructor() {
     super();
+    
     this.state = {
       data: ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran♀","Nidorina","Nidoqueen","Nidoran♂","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew",
       ],
@@ -18,33 +23,66 @@ class App extends Component {
         {'name': 'php', 'version': 'v1.1', 'isLatest': false},
         {'name': 'php', 'version': 'v1.1', 'isLatest': true},
         {'name': 'php', 'version': 'v1.1', 'isLatest': false}
-      ]
+      ],
+      appName: 'React Search Bar',
+      formula_map: [],
+  
+      isLoaded: false
     }
   }
+
+
+
+  componentDidMount() {
+    fetch("https://formulae.brew.sh/api/formula.json")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          data_body = result;
+          for (var i in data_body) {
+                formula_map1[data_body[i].name] = data_body[i];
+          }
+          this.setState({
+            isLoaded: true,
+            formula_map: formula_map1
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
   searchData(e) {
-    var queryData = [];
-    if(e.target.value !== '') {
-      this.state.data.forEach(function(person) {
+    let queryData = [];
+    if(e.target.value != '') {
+      for (let person in this.state.formula_map) {
           if(person.toLowerCase().indexOf(e.target.value) !== -1) {
             if(queryData.length < 10) {
               queryData.push(person);
             }
           }
-      });
+      }
     }
     this.setState({list: queryData});
   }
 
-  goCart(e) {
+  goCart() {
     this.setState({cartPage: !this.state.cartPage})
   }
 
   onAddPackage(want_package) {
-    alert(want_package.name)
 		this.state.packageInCart.push(want_package)
   }
 
   render() {
+    
     return (
       <div className="App">
         <div className="App-header">
