@@ -35,6 +35,7 @@ class App extends Component {
         (results) => {
           // map_installed_packages = results.installed_packages;
           this.setState({packcagesInstalled: results.installed_packages})
+          // alert(this.state.packcagesInstalled)
         },
         (error) => {
           alert(error)
@@ -83,7 +84,7 @@ class App extends Component {
 
   goCart() {
     if (this.state.currentPage === 'cart') {
-      this.setState({currentPage: 'shop'})
+      this.setState({currentPage: 'shop', searchList: []})
     }
     else {
       this.setState({currentPage: 'cart'})
@@ -91,9 +92,13 @@ class App extends Component {
     
   }
 
+  updatedInstall(installed) {
+    this.setState({packcagesInstalled: installed})
+  }
+
   goInstalled() {
     if (this.state.currentPage === 'installed') {
-      this.setState({currentPage: 'shop'})
+      this.setState({currentPage: 'shop',  searchList: []})
     }
     else {
       this.setState({currentPage: 'installed'})
@@ -127,7 +132,7 @@ class App extends Component {
             </div>
            ) : 
           ( (this.state.currentPage === 'cart') ?
-              <Cart packages={this.state.packageInCart}/>
+              <Cart packages={this.state.packageInCart} updatedInstall={this.updatedInstall.bind(this)}/>
               :
               <Installed packcagesInstalled={this.state.packcagesInstalled}/>
           )

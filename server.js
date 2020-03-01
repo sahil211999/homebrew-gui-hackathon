@@ -4,7 +4,7 @@ const path = require('path')
 const port = process.env.PORT || 5000
 
 const { exec, spawn } = require('child_process')
-const ls = spawn('brew', ['list'])
+let ls = spawn('brew', ['list'])
 
 let bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
@@ -28,10 +28,11 @@ ls.stdout.on('data', (data) => {
       'installed_packages': installed_packages
     });
   })
-});
+})
 
 app.post('/download/', (req, res) => {
   let packagesToInstall = req.body
+  console.log(packagesToInstall)
   packagesToInstallList = '' 
   packagesToInstall.map((p) => {
     packagesToInstallList += p.name
@@ -51,10 +52,17 @@ app.post('/download/', (req, res) => {
     console.log(`stdout: ${stdout}`)
     console.error(`stderr: ${stderr}`)
 
-    res.send({
-      'stdout': stdout,
-      'stderr': stderr,
-      'status': 'success'
+    ls = spawn('brew', ['list'])
+    ls.stdout.on('data', (data) => {
+      installed = data.toString().split('\n')
+      // console.log(installed)
+
+      res.send({
+        'stdout': stdout,
+        'stderr': stderr,
+        'status': 'success',
+        'installed': installed
+      })
     })
   })
 })

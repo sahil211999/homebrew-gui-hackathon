@@ -36,7 +36,15 @@ class Cart extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({progess: data})
-      alert(data.status)
+      if (data.error) {
+        alert('Failed' + data.error)  
+      } else {
+        // alert(JSON.stringify(data))
+        if (this.props.updatedInstall) {
+          this.props.updatedInstall(data.installed)
+        }
+        alert(data.status)
+      }
     })
   }
 
