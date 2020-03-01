@@ -36,7 +36,7 @@ class Cart extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({progess: data})
-      alert(JSON.stringify(data))
+      alert(data.status)
     })
   }
 

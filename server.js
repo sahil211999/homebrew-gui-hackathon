@@ -21,8 +21,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 ls.stdout.on('data', (data) => {
-  let installed_packages = data.toString()
+  let installed_packages = data.toString().split('\n')
   app.get('/installed/', (req, res) => {
+    console.log(installed_packages)
     res.send({
       'installed_packages': installed_packages
     });
@@ -49,9 +50,11 @@ app.post('/download/', (req, res) => {
     }
     console.log(`stdout: ${stdout}`)
     console.error(`stderr: ${stderr}`)
+
     res.send({
       'stdout': stdout,
       'stderr': stderr,
+      'status': 'success'
     })
   })
 })

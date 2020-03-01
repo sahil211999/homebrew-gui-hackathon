@@ -3,6 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import PackagesList from './compenents/PackagesList';
 import Cart from './compenents/Cart'
+import Installed from './compenents/Installed'
 
 const {app} = window.require('electron')
 
@@ -21,6 +22,8 @@ class App extends Component {
       packageInCart: [],
       appName: 'React Search Bar',
       isLoaded: false,
+      currentPage: 'shop',
+      packcagesInstalled: []
     }
   }
 
@@ -30,8 +33,8 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (results) => {
-          // alert(results.installed_packages)
           // map_installed_packages = results.installed_packages;
+          this.setState({packcagesInstalled: results.installed_packages})
         },
         (error) => {
           alert(error)
@@ -78,15 +81,23 @@ class App extends Component {
     this.setState({searchList: queryData});
   }
 
-
-
-
-
-
-
-
   goCart() {
-    this.setState({cartPage: !this.state.cartPage})
+    if (this.state.currentPage === 'cart') {
+      this.setState({currentPage: 'shop'})
+    }
+    else {
+      this.setState({currentPage: 'cart'})
+    }
+    
+  }
+
+  goInstalled() {
+    if (this.state.currentPage === 'installed') {
+      this.setState({currentPage: 'shop'})
+    }
+    else {
+      this.setState({currentPage: 'installed'})
+    }
   }
 
   onAddPackage(want_package) {
@@ -102,9 +113,10 @@ class App extends Component {
           <h1 className='title'>Homebrew Shop <span role="img" aria-label="love"></span></h1>
         </div>
 
-        <button className='cart-button' onClick={this.goCart.bind(this)}>{this.state.cartPage ? 'Shop':'Cart'}</button>
+        <button className='cart-button' onClick={this.goCart.bind(this)}>{this.state.currentPage === 'cart' ? 'Shop':'Cart'}</button>
+        <button className='installed-button' onClick={this.goInstalled.bind(this)}>{this.state.currentPage === 'installed' ? 'Shop':'Installed'}</button>
 
-        {!this.state.cartPage ? 
+        {(this.state.currentPage === 'shop') ?
           (
             <div>
               <SearchBar search={this.searchData.bind(this)} />
@@ -114,8 +126,10 @@ class App extends Component {
               />
             </div>
            ) : 
-          (
-            <Cart packages={this.state.packageInCart}/>
+          ( (this.state.currentPage === 'cart') ?
+              <Cart packages={this.state.packageInCart}/>
+              :
+              <Installed packcagesInstalled={this.state.packcagesInstalled}/>
           )
         }
       </div>
