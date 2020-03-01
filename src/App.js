@@ -8,7 +8,7 @@ const {app} = window.require('electron')
 
 let data = null
 
-let map_installed_packages
+// let map_installed_packages
 
 class App extends Component {
   constructor() {
@@ -30,8 +30,8 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (results) => {
-          alert(results.installed_packages)
-          map_installed_packages = results.installed_packages;
+          // alert(results.installed_packages)
+          // map_installed_packages = results.installed_packages;
         },
         (error) => {
           alert(error)
