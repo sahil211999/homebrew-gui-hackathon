@@ -5,23 +5,23 @@
   "version": "0.0.1",
   "private": false,
   "dependencies": {
-    "cross-env": "6.0.2",
+    "cross-env": "7.0.0",
     "electron-is-dev": "1.1.0",
-    "electron-log": "^3.0.8",
-    "electron-reload": "^1.5.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "update-electron-app": "^1.2.0",
-    "yarn": "^1.22.0"
+    "electron-log": "4.0.7",
+    "electron-reload": "1.5.0",
+    "prop-types": "15.7.2",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "update-electron-app": "1.5.0",
+    "yarn": "1.22.0"
   },
   "devDependencies": {
-    "concurrently": "4.1.2",
-    "electron": "6.0.11",
-    "electron-builder": "^21.2.0",
-    "prettier": "^1.4.4",
-    "react-scripts": "^3.4.0",
-    "wait-on": "3.3.0"
+    "concurrently": "5.1.0",
+    "electron": "8.0.2",
+    "electron-builder": "22.3.2",
+    "prettier": "1.19.1",
+    "react-scripts": "3.4.0",
+    "wait-on": "4.0.1"
   },
   "build": {
     "publish": {
