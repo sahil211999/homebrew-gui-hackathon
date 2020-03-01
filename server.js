@@ -3,8 +3,12 @@ const app = express()
 const path = require('path')
 const port = process.env.PORT || 5000
 
-const { spawn } = require('child_process')
+const { exec, spawn } = require('child_process')
 const ls = spawn('brew', ['list'])
+
+let bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -18,13 +22,40 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 ls.stdout.on('data', (data) => {
   let installed_packages = data.toString()
-  app.get('/installed/', function(req, res) {
+  app.get('/installed/', (req, res) => {
     res.send({
       'installed_packages': installed_packages
     });
   })
-
 });
+
+app.post('/download/', (req, res) => {
+  let packagesToInstall = req.body
+  packagesToInstallList = '' 
+  packagesToInstall.map((p) => {
+    packagesToInstallList += p.name
+    packagesToInstallList += ' '
+  })
+
+  let installed = []
+  let failInstalled = []
+  exec('brew install ' + packagesToInstallList, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      res.send({
+        'error': error
+      })
+      return;
+    }
+    console.log(`stdout: ${stdout}`)
+    console.error(`stderr: ${stderr}`)
+    res.send({
+      'stdout': stdout,
+      'stderr': stderr,
+    })
+  })
+})
+
 
 //start server
 app.listen(port, (req, res) => {
