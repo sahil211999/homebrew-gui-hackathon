@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
 import './App.css';
-import ProgressBar from './progressBar';
-import Cart from '../src/UI compenents/cart/index'
+import PackagesList from './compenents/PackagesList';
+import Cart from './compenents/Cart'
 
 const {app} = window.require('electron').remote
 
@@ -14,7 +14,7 @@ class App extends Component {
       ],
       list: undefined,
       cartPage: false,
-      cartList: [
+      packageInCart: [
         {'name': 'php', 'version': 'v1.1', 'isLatest': false},
         {'name': 'php', 'version': 'v1.1', 'isLatest': true},
         {'name': 'php', 'version': 'v1.1', 'isLatest': false}
@@ -39,16 +39,14 @@ class App extends Component {
     this.setState({cartPage: !this.state.cartPage})
   }
 
-  onAddCart(want_package) {
-    let packages = this.state.cartList
-		packages.push(want_package)
-		this.setState({cartList: packages})
+  onAddPackage(want_package) {
+    alert(want_package.name)
+		this.state.packageInCart.push(want_package)
   }
 
   render() {
     return (
       <div className="App">
-        {/* <div><Cart /></div> */}
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Homebrew Shop <span role="img" aria-label="love"></span></h1>
@@ -60,11 +58,11 @@ class App extends Component {
           (
             <div>
               <SearchBar search={this.searchData.bind(this)} />
-              {(this.state.list) ? <SearchResult data={this.state.list} onAddCart={this.onAddCart}/> : null }
+              {(this.state.list) ? <PackagesList data={this.state.list} handleAddPackage={this.onAddPackage.bind(this)}/> : null }
             </div>
            ) : 
           (
-            <Cart packages={this.state.cartList}/>
+            <Cart packages={this.state.packageInCart}/>
           )
         }
       </div>
@@ -73,7 +71,23 @@ class App extends Component {
     );
   }
 }
-// class Cart extends React.Component {
+
+class SearchBar extends React.Component {
+  render() {
+    return(
+      <div>
+        <input type="text" onChange={this.props.search} placeholder="Search"/>
+      </div>
+    )
+  }
+}
+
+
+export default App;
+
+
+
+// class Modal extends React.Component {
 //   constructor() {
 //     super()
 //     this.state = {
@@ -104,54 +118,3 @@ class App extends Component {
 //     )
 //   }
 // }
-
-class SearchBar extends React.Component {
-  render() {
-    return(
-      <div>
-        <input type="text" onChange={this.props.search} placeholder="Search"/>
-      </div>
-    )
-  }
-}
-
-class SearchResult extends React.Component {
-  constructor() {
-    super()
-    // this.state = {
-    //   onAddCartMethod: this.props.onAddCart
-    // }
-  }
-  render() {
-    return (
-      <div>
-        <ul>
-          {this.props.data.map(function(value) {
-              return <Item key={value} val={value}/>
-          })}
-
-        </ul>
-
-      </div>
-    )
-  }
-}
-
-class Item extends React.Component {
-  onAdd() {
-    if (this.props.onAddCart) {
-      this.props.onAddCart(this.props.val)
-    }
-  }
-  render() {
-    return(
-      <li>
-        {this.props.val}
-        <button onClick={this.onAdd.bind(this)}>Add</button>
-      </li>
-    )
-  }
-
-}
-
-export default App;

@@ -1,6 +1,6 @@
 import React from 'react'
 //import { Column, Row } from 'simple-flexbox';
-import './style.css'
+import '../style/formula.css'
 
 /**
 * @author
