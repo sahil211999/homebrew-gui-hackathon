@@ -42,7 +42,6 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (results) => {
-          alert(results)
           results.map((result) => {
             this.state.packagesAvailable.push({
               'name': result.name,
@@ -79,6 +78,13 @@ class App extends Component {
     this.setState({searchList: queryData});
   }
 
+
+
+
+
+
+
+
   goCart() {
     this.setState({cartPage: !this.state.cartPage})
   }
@@ -93,16 +99,19 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Homebrew Shop <span role="img" aria-label="love"></span></h1>
+          <h1 className='title'>Homebrew Shop <span role="img" aria-label="love"></span></h1>
         </div>
 
-        <button style={{height: '50px', width: '50px'}} onClick={this.goCart.bind(this)}>Cart</button>
+        <button className='cart-button' onClick={this.goCart.bind(this)}>{this.state.cartPage ? 'Shop':'Cart'}</button>
 
         {!this.state.cartPage ? 
           (
             <div>
               <SearchBar search={this.searchData.bind(this)} />
-              <PackagesList searchList={this.state.searchList} handleAddPackage={this.onAddPackage.bind(this)}/>
+              <PackagesList 
+                searchList={(this.state.searchList.length > 0) ? this.state.searchList : this.state.packagesAvailable} 
+                handleAddPackage={this.onAddPackage.bind(this)}
+              />
             </div>
            ) : 
           (
