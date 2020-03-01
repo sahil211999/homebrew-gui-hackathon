@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.png';
 import './App.css';
 
-const {app} = window.require('electron').remote;
-
 class App extends Component {
     constructor() {
     super();
@@ -16,9 +14,9 @@ class App extends Component {
   }
   searchData(e) {
     var queryData = [];
-    if(e.target.value != '') {
+    if(e.target.value !== '') {
       this.state.data.forEach(function(person) {
-          if(person.toLowerCase().indexOf(e.target.value)!=-1) {
+          if(person.toLowerCase().indexOf(e.target.value) !== -1) {
             if(queryData.length < 10) {
               queryData.push(person);
             }
@@ -47,15 +45,6 @@ class App extends Component {
     );
   }
 
-}
-class Header extends React.Component {
-  render() {
-    return(
-      <div>
-        <h1>{this.props.name}</h1>
-      </div>
-    )
-  }
 }
 
 class SearchBar extends React.Component {
