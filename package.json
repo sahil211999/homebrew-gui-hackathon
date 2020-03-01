@@ -9,9 +9,11 @@
     "electron-is-dev": "1.1.0",
     "electron-log": "^3.0.8",
     "electron-reload": "^1.5.0",
+    "jquery": "3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "request": "^2.88.2",
     "update-electron-app": "^1.2.0",
     "yarn": "^1.22.0"
   },
