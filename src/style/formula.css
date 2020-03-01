@@ -1,0 +1,27 @@
+.FormulaCard  {
+    width: 97%;
+    height: 1cm;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding:2em 20px 0;
+
+    display: flex;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+    color: #f9d094;
+    background-color: #2e2a24;
+
+}
+
+.version, .is-latest, .name {
+   justify-content: center;
+   align-content: center;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+
+}
