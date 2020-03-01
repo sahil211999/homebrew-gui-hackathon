@@ -13,14 +13,7 @@ class PackagesList extends Component {
     }
   }
 
-  // handleAddPackage(wantPackage) {
-  //   if (this.props.handleAddPackage) {
-
-  //   }
-  //   let packageInCart = this.state.packageInCart
-	// 	packageInCart.push(wantPackage)
-	// 	this.setState({packageInCart: packageInCart})
-  // }
+  
   
   render() {
     return (

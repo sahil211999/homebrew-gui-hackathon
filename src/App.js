@@ -3,14 +3,20 @@ import logo from './logo.png';
 import './App.css';
 import PackagesList from './compenents/PackagesList';
 import Cart from './compenents/Cart'
+var shell = require('shelljs');
+
+//shell.brew("npm");
 
 const {app} = window.require('electron').remote
+
 
 let formula_map = {}
 let formula_map1 = {}
 var data_body;
 
 class App extends Component {
+  
+
     constructor() {
     super();
     
@@ -19,11 +25,6 @@ class App extends Component {
       ],
       list: undefined,
       cartPage: false,
-      packageInCart: [
-        {'name': 'php', 'version': 'v1.1', 'isLatest': false},
-        {'name': 'php', 'version': 'v1.1', 'isLatest': true},
-        {'name': 'php', 'version': 'v1.1', 'isLatest': false}
-      ],
       appName: 'React Search Bar',
       formula_map: [],
   
@@ -34,6 +35,7 @@ class App extends Component {
 
 
   componentDidMount() {
+   // alert( ls.stdout);
     fetch("https://formulae.brew.sh/api/formula.json")
       .then(res => res.json())
       .then(
