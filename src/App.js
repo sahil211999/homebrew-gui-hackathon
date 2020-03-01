@@ -28,6 +28,7 @@ class App extends Component {
     this.setState({list: queryData});
   }
 
+
   render() {
     return (
       <div className="App">
@@ -53,11 +54,36 @@ class App extends Component {
 
 }
 class Cart extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+
+
+
+  openCart(){
+    const modal = document.getElementsByClassName('modal')[0];
+    modal.style.display = "block";
+  }
+  closeCart() {
+    const modal = document.getElementsByClassName('modal')[0];
+    modal.style.display = "none";
+  }
   render() {
     return(
-      <div class="button-cart">
-        <button  type="button" onclick="#">Cart</button>
+      <div class="cart-container">
+        <button class="cart-button" type="button" onClick={this.openCart.bind(this)}>In Your Glass</button>
+
+        <div id="modal-cart" class="modal">
+          <div class="modal-content">
+            <span class="closeBtn" onClick={this.closeCart.bind(this)}>&times;</span>
+            <p>I am Suk Min Hwang!</p>
+          </div>
+        </div>
       </div>
+
     )
   }
 }
@@ -93,6 +119,7 @@ class Item extends React.Component {
     return(
       <li>
         {this.props.val}
+        <button>Add</button>
       </li>
     )
   }

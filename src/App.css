@@ -34,11 +34,7 @@ html {
    background: #2e2a24;
    font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", sans-serif;
 }
-body {
-  padding: 60px;
-  text-align: center;
-   background: #2e2a24;
-}
+
 
 input[type=text]{
   text-align: center;
@@ -89,7 +85,45 @@ h1,h2,h3{
   text-shadow:1px 1px 10px rgba(0, 0, 0, 0.25)
 }
 
-.button-cart{
-  display: flex;
-  justify-content: flex-end;
+.cart-container{
+  width: 100vw;
+  position: fixed;
+
+}
+
+.cart-button{
+  float:right;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left:0; top:0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+  background-color: #f4f4f4;
+  margin: 18% auto;
+  padding: 20px;
+  width: 23%;
+  height: 40vh;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2) ;
+  float: right;
+}
+
+.closeBtn{
+  color: #ccc;
+  float: right;
+  font-size:30px;
+}
+
+.closeBtn:hover, .closeBtn:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
