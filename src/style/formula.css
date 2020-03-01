@@ -1,0 +1,41 @@
+/* .FormulaCard  {
+    width: 100%;
+    height: 2cm;
+    border: 1px solid #aaa;
+    display: flex;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+    
+    background-color: #E0E0E0;
+}
+
+.version, .is-latest, .name {
+   justify-content: center;
+   align-content: center;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+    
+}
+ */
+ .item-wrap {
+    padding: 15px 20px;
+    background-color: #F8F8F8;
+    color: #788585;
+    margin-bottom: 3px;
+  
+    display: flex;
+    justify-content: space-between;
+  }
+  .item-name {
+    width: 50%;
+  }
+  .item-version {
+    width: 20%;
+  }
+  button {
+    background-color: #f9d094;
+    width: 50px;
+    height: 50px;
+  }

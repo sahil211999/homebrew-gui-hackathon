@@ -1,0 +1,21 @@
+.col-name {
+  padding: 15px 20px;
+  background-color: #F8F8F8;
+  color: #788585;
+  margin-bottom: 3px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.nothing {
+  width: 50px;
+}
+.item-name {
+  width: 50%;
+}
+.item-version {
+  width: 20%;
+}
+.col-name > * {
+  font-weight: bold;
+}

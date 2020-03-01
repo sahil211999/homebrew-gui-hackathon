@@ -1,0 +1,15 @@
+.install-all {
+  height: 50px;
+  width: 150px;
+  color: #788585;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  display: inline-block;
+  width: 420px;
+  text-align: left;
+}
