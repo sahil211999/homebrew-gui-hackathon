@@ -11,6 +11,8 @@ class Cart extends Component {
   constructor () {
     super()
     this.state = {
+      installing: false,
+      message: '',
       progess: {
         'stdout': null,
         'stderr': null,
@@ -24,6 +26,7 @@ class Cart extends Component {
   }
 
   handleDownload() {
+    this.setState({installing: true, message: 'Installing...'})
     fetch('http://localhost:5000/download', {
       method: 'post',
       dataType: 'json',
@@ -35,7 +38,7 @@ class Cart extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      this.setState({progess: data})
+      this.setState({progess: data, message: 'Done!'})
       if (data.error) {
         alert('Failed' + data.error)  
       } else {
@@ -43,7 +46,7 @@ class Cart extends Component {
         if (this.props.updatedInstall) {
           this.props.updatedInstall(data.installed)
         }
-        alert(data.status)
+        // alert(data.status)
       }
     })
   }
@@ -62,6 +65,7 @@ class Cart extends Component {
           })}
         </ul>
         <div><button className='install-all' onClick={this.handleDownload.bind(this)}>Install All</button></div>
+        {(this.state.installing) ? <h3 className='installing'>{this.state.message}</h3> : null}
       </div>
     )
   }

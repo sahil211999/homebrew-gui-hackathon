@@ -8,15 +8,17 @@
   top: 0;
   right: 200px;
   height: 50px;
-  width: 50px;
+  width: 150px;
+  font-size: 30px;
 }
 
 .installed-button {
   position: absolute;
-  top: 0;
-  right: 100px;
+  top: 100px;
+  right: 200px;
   height: 50px;
-  width: 50px;
+  width: 150px;
+  font-size: 30px;
 }
 
 .App-logo {

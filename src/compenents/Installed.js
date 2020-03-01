@@ -16,7 +16,7 @@ class Installed extends Component {
     // alert(this.props.packcagesInstalled[0])
     return (
       <div>
-        <h1>Packages Installed</h1>
+        <h3>Packages Installed</h3>
         <ul>
           <div className='col-name'>
             <div className='item-name'>Name</div>

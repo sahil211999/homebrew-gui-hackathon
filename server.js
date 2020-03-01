@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 ls.stdout.on('data', (data) => {
   let installed_packages = data.toString().split('\n')
   app.get('/installed/', (req, res) => {
-    console.log(installed_packages)
+    // console.log(installed_packages)
     res.send({
       'installed_packages': installed_packages
     });
